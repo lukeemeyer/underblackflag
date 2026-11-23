@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Black Flag Media — Something is coming.</title>
+  <meta name="description" content="A new era is on the horizon. Black Flag Media — something is coming.">
+  <meta name="theme-color" content="#050607">
+
+  <!-- Link previews (texts, Discord, Facebook, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://underblackflag.com/">
+  <meta property="og:title" content="Black Flag Media">
+  <meta property="og:description" content="A new era is on the horizon. Something is coming.">
+  <meta property="og:image" content="https://underblackflag.com/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="670">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    /*
+      The poster sits in the middle of a bigger canvas of extended smoke.
+      --D is how wide the original poster is drawn: as large as fits the screen.
+      --k is how much wider the whole canvas is than the poster, so the smoke
+      spills past every edge of the screen (and under the browser's bars).
+    */
+    :root {
+      --D: min(100vw, 179.1667vh);
+      --k: 1.34302;                       /* wide canvas: underblackflag.jpg */
+    }
+    @supports (height: 1svh) {
+      /* size to the screen area left when the browser bars are showing */
+      :root { --D: min(100vw, 179.1667svh); }
+    }
+    @media (max-aspect-ratio: 1/1) {
+      :root { --k: 1.04070; }             /* tall canvas: underblackflag-tall.jpg */
+    }
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      overscroll-behavior: none;
+      background: #050607;
+    }
+    .poster {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: calc(var(--D) * var(--k));
+      max-width: none;
+      height: auto;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <picture>
+    <source media="(max-aspect-ratio: 1/1)" srcset="underblackflag-tall.jpg" width="1800" height="4123">
+    <img class="poster" src="underblackflag.jpg" width="3696" height="2816"
+         alt="A black pirate flag with a skull and crossed swords waves in dark fog. Text reads: A new era is on the horizon. Black Flag Media. Something is coming. UnderBlackFlag.com">
+  </picture>
+</body>
+</html>
